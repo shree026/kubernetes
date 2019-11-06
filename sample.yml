@@ -1,0 +1,15 @@
+---
+apiVersion: v1                         # to provide version of kind we are using
+kind: Pod
+metadata:
+  name: hola                           #name of pod ----should be unique
+spec:
+  containers:
+  - image: nginx
+    imagePullPolicy: IfNotPresent      # only pull when image is not present
+    name: c1                           #name of container
+    ports:
+    - containerPort: 80
+      protocol: TCP
+  nodeName: node3.example.com          # we are telling kube schedular on a specific node
+  restartPolicy: Always                # start pod automatically 
