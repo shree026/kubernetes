@@ -1,0 +1,19 @@
+---
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+        name: deploy1
+spec:
+        replicas: 2                                                    # will maintain replication no. of pods
+        template:                                                      # will be used as setting of pods
+                metadata:
+                        labels:
+                                app: deploy1
+                spec:                                                      #about containers
+                        containers:
+                                - name: c1
+                                  image: nginx
+                                  ports:
+                                          - containerPort: 80
+                                  imagePullPolicy: IfNotPresent
+
